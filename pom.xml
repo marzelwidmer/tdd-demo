@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,9 +15,8 @@
 	<description>Demo Spring Boot project with Kotlin</description>
 	<properties>
 		<java.version>11</java.version>
-		<kotlin.version>1.4.32</kotlin.version>
+		<kotlin.version>1.5.0</kotlin.version>
 		<spring-cloud.version>2020.0.2</spring-cloud.version>
-
 		<!-- =================  Test libraries ================= -->
 		<mockk.version>1.11.0</mockk.version>
 		<kluent.version>1.65</kluent.version>
@@ -134,8 +133,6 @@
 			<version>${kotest.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-
 
 		<!-- Mockk -->
 		<dependency>
