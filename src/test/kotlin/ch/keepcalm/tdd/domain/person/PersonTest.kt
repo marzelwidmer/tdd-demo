@@ -1,6 +1,6 @@
-package ch.keepcalm.tdd.domain.model.person
+package ch.keepcalm.tdd.domain.person
 
-import ch.keepcalm.tdd.domain.model.DomainModelFaker
+import ch.keepcalm.tdd.domain.DomainModelFaker
 import ch.keepcalm.tdd.matcher.ValidNameMatcher
 import io.kotest.matchers.comparables.shouldBeEqualComparingTo
 import org.assertj.core.api.BDDAssertions

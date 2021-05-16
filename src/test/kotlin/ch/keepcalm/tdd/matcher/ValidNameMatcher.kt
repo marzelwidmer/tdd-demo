@@ -14,5 +14,4 @@ class ValidNameMatcher : BaseMatcher<String>(){
     override fun matches(actual: Any?): Boolean {
         return actual is String && isValidName(actual)
     }
-
 }

@@ -1,7 +1,6 @@
-package ch.keepcalm.tdd.domain.model.address
+package ch.keepcalm.tdd.domain.address
 
-import ch.keepcalm.tdd.domain.model.DomainModelFaker
-import io.kotest.matchers.comparables.shouldBeEqualComparingTo
+import ch.keepcalm.tdd.domain.DomainModelFaker
 import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.shouldNotBeNull
 import org.junit.jupiter.api.Test
@@ -30,5 +29,6 @@ class AddressTests() {
         address.city `should be equal to` city
         address.province `should be equal to` province
         address.provinceCode `should be equal to` provinceCode
+
     }
 }

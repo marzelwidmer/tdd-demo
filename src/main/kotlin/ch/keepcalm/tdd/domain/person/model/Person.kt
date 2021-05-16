@@ -1,4 +1,4 @@
-package ch.keepcalm.tdd.domain.model.person
+package ch.keepcalm.tdd.domain.person.model
 
 import javax.validation.constraints.Email
 import javax.validation.constraints.Size
