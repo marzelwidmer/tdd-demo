@@ -21,6 +21,7 @@ class PersonTest {
         localValidatorFactoryBean.afterPropertiesSet()
         this.validator = localValidatorFactoryBean.validator
     }
+
     @Test
     fun `new instance with valid values should return a record`() {
         val person = DomainModelFaker.person()

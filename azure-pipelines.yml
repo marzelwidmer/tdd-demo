@@ -1,0 +1,36 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Common variables and constants
+  - template: ci/common/common-variables.yaml
+  # Project-specific variables
+  - name: projectName
+    value: $(Build.DefinitionName)
+  - name: GIT_VERSION_CONFIGURATION
+    value: ci/GitVersion.yaml
+
+stages:
+  # Prepare Semantic Versioning
+  - stage: StageVersion
+    displayName: 'Semantic Version'
+    jobs:
+      - template: ci/common/semver-job.yaml
+        parameters:
+          gitVersionConfigurationFile: $(GIT_VERSION_CONFIGURATION)
+
+  # Build, Unit Test
+  - stage: StageBuildUnitTest
+    displayName: 'Build & Unit Test'
+    dependsOn: StageVersion
+    jobs:
+      - job: BuildTest
+        steps:
+          # Get target build version
+          - template: ci/common/read-semver-files-steps.yaml
+          # Build project with Maven
+          - template: ci/fsl/maven-build-unit-test-steps.yaml
+            parameters:
+              projectName: $(projectName)
+              projectVersion: $(version)
+

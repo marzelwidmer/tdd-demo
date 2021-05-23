@@ -1,0 +1,13 @@
+variables:
+  ### Pipeline-related
+  - name: isMainBranch
+    value: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+
+  ### Build-related
+  - name: MAVEN_CACHE_FOLDER
+    value: $(Pipeline.Workspace)/.m2/repository
+  - name: MAVEN_OPTS
+    value: -Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)
+  - name: JDK_VERSION
+    value: '1.11'
+

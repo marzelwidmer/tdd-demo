@@ -13,10 +13,20 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tdd-demo</name>
 	<description>Demo Spring Boot project with Kotlin</description>
+
 	<properties>
 		<java.version>11</java.version>
-		<kotlin.version>1.5.0</kotlin.version>
+<!--		<kotlin.version>1.5.0</kotlin.version>-->
+		<kotlin.version>1.4.32</kotlin.version>
+
 		<spring-cloud.version>2020.0.2</spring-cloud.version>
+
+		<!-- =================  Test ================= -->
+		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
+		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
+		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+
 		<!-- =================  Test libraries ================= -->
 		<mockk.version>1.11.0</mockk.version>
 		<kluent.version>1.65</kluent.version>
