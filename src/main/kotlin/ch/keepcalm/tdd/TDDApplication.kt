@@ -1,8 +1,10 @@
 package ch.keepcalm.tdd
 
+import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
+import org.springframework.context.support.beans
 import org.springframework.hateoas.config.EnableHypermediaSupport
 import org.springframework.hateoas.support.WebStack
 import org.springframework.web.server.adapter.ForwardedHeaderTransformer
@@ -14,6 +16,17 @@ class TDDApplication {
 	fun forwardedHeaderTransformer(): ForwardedHeaderTransformer = ForwardedHeaderTransformer()
 }
 
+
 fun main(args: Array<String>) {
-	runApplication<TDDApplication>(*args)
+	runApplication<TDDApplication>(*args){
+		addInitializers(
+			beans {
+				bean {
+					ApplicationRunner {
+						println("ApplicationRunner ----------------->")
+					}
+				}
+			}
+		)
+	}
 }
