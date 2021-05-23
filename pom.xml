@@ -33,6 +33,7 @@
 		<kotest.version>4.4.3</kotest.version>
 		<springmockk.version>3.0.1</springmockk.version>
 		<hamkrest.version>1.8.0.1</hamkrest.version>
+		<javafaker.version>1.0.2</javafaker.version>
 	</properties>
 
 	<dependencies>
@@ -147,6 +148,14 @@
 			<groupId>io.kotest</groupId>
 			<artifactId>kotest-extensions-spring-jvm</artifactId>
 			<version>${kotest.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Faker -->
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>${javafaker.version}</version>
 			<scope>test</scope>
 		</dependency>
 
