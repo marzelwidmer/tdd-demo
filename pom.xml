@@ -17,12 +17,10 @@
 	<properties>
 		<java.version>11</java.version>
 		<kotlin.version>1.5.0</kotlin.version>
-<!--		<kotlin.version>1.4.32</kotlin.version>-->
 
 		<spring-cloud.version>2020.0.2</spring-cloud.version>
 
 		<!-- =================  Test ================= -->
-		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<build-helper-maven-plugin.version>3.2.0</build-helper-maven-plugin.version>
 		<maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -241,25 +239,6 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${jacoco-maven-plugin.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
