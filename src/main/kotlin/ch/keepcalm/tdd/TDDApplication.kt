@@ -17,4 +17,3 @@ class TDDApplication {
 fun main(args: Array<String>) {
 	runApplication<TDDApplication>(*args)
 }
-
