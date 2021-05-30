@@ -2,25 +2,32 @@
 
 package ch.keepcalm.tdd.api
 
+import ch.keepcalm.tdd.domain.person.model.Person
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
+import org.springframework.hateoas.MediaTypes
+import org.springframework.http.MediaType
 import org.springframework.test.web.reactive.server.WebTestClient
+import reactor.core.publisher.Mono
 
 @WebFluxTest
-class PersonApiTest (private val client: WebTestClient) {
+class PersonApiTest(private val client: WebTestClient) {
 
     @Test
-    fun `Should return a status of 2xx for the API Index Resource`() {
-        client.get()
-            .uri("/")
+    fun `Create a person with POST returns person representation`() {
+        val person = Person(name = "John", email = "john@doe.com")
+
+        client.post().uri("/person")
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept().header(MediaTypes.HAL_JSON_VALUE)
+            .body(Mono.just(person), Person::class.java)
             .exchange()
-            .expectStatus()
-            .is2xxSuccessful
+            .expectStatus().isCreated()
+            .expectHeader().contentType(MediaTypes.HAL_JSON_VALUE)
             .expectBody()
+            .jsonPath("$.name").isNotEmpty()
+            .jsonPath("$.name").isEqualTo("John")
+
     }
 
-    @Test
-    fun `Should return a status of 4xx for a non existing API endpoint 🦠`() {
-        client.get().uri("/wrong/endpoint").exchange().expectStatus().is4xxClientError
-    }
 }
