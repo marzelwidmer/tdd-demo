@@ -29,7 +29,7 @@ stages:
           # Get target build version
           - template: ci/common/read-semver-files-steps.yaml
           # Build project with Maven
-          - template: ci/fsl/maven-build-unit-test-steps.yaml
+          - template: ci/maven-build-unit-test-steps.yaml
             parameters:
               projectName: $(projectName)
               projectVersion: $(version)

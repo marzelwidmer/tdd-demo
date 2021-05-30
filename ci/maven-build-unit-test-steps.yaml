@@ -59,6 +59,6 @@ steps:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
       goals: ${{ parameters.mavenGoals }}
-      codeCoverageToolOption: JaCoCo
+#      codeCoverageToolOption: JaCoCo
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       options: '-Drevision=${{parameters.projectVersion}} ${{ parameters.mavenOptions }}'
