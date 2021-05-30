@@ -9,6 +9,10 @@ variables:
     value: $(Build.DefinitionName)
   - name: GIT_VERSION_CONFIGURATION
     value: ci/GitVersion.yaml
+  - name : SONAR_ORGANIZATION
+    value : c3smonkey-devops
+  - name : SONAR_CLOUD
+    value : azure-c3smonkey
 
 stages:
   # Prepare Semantic Versioning
