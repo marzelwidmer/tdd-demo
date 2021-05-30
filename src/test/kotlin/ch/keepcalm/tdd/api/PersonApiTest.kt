@@ -1,16 +1,16 @@
+@file:Suppress("NonAsciiCharacters")
+
 package ch.keepcalm.tdd.api
 
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
 import org.springframework.test.web.reactive.server.WebTestClient
 
-
 @WebFluxTest
-class PersonApiTest (@Autowired private val client: WebTestClient) {
+class PersonApiTest (private val client: WebTestClient) {
 
     @Test
-    fun index() {
+    fun `Should return a status of 2xx for the API Index Resource`() {
         client.get()
             .uri("/")
             .exchange()
@@ -20,7 +20,7 @@ class PersonApiTest (@Autowired private val client: WebTestClient) {
     }
 
     @Test
-    fun `error 🦠` () {
+    fun `Should return a status of 4xx for a non existing API endpoint 🦠`() {
         client.get().uri("/wrong/endpoint").exchange().expectStatus().is4xxClientError
     }
 }

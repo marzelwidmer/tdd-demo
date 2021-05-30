@@ -5,7 +5,7 @@ import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.shouldNotBeNull
 import org.junit.jupiter.api.Test
 
-class AddressTests() {
+class AddressTests {
 
     @Test
     fun `Should create an Address instance`() {
@@ -14,7 +14,7 @@ class AddressTests() {
     }
 
     @Test
-    fun `new instance with valid values should return a record`() {
+    fun `Should create a new instance with valid values`() {
         val address = DomainModelFaker.address()
         val street = address.street
         val streetNr = address.streetNr

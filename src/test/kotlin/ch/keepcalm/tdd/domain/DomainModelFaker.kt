@@ -4,9 +4,6 @@ import ch.keepcalm.tdd.domain.address.model.*
 import ch.keepcalm.tdd.domain.person.model.Person
 import com.github.javafaker.Faker
 
-
-
-
 class DomainModelFaker {
     companion object {
         private val  faker = Faker()

@@ -23,7 +23,7 @@ class PersonTest {
     }
 
     @Test
-    fun `new instance with valid values should return a record`() {
+    fun `Should create a new instance with valid values`() {
         val person = DomainModelFaker.person()
         val name = person.name
         val email = person.email
@@ -35,20 +35,20 @@ class PersonTest {
     }
 
     @Test
-    fun `new instance with invalid contains should produce contains violations`() {
+    fun `Should produce contains violations for a new instance with invalid values`() {
         val person = DomainModelFaker.person(name= "j", email= "noValidEmailAddress")
         val constrainViolations = validator.validate(person)
         BDDAssertions.then(constrainViolations.size).isEqualTo(2)
     }
 
     @Test
-    fun `Matcher test` () {
+    fun `Custom ValidNameMatcher test` () {
         val person = DomainModelFaker.person()
         assertThat(person.name, ValidNameMatcher())
     }
 
     @Test
-    fun `Should throw AssertionError because of invalid name` () {
+    fun `Should throw AssertionError because of invalid name with the custom ValidNameMatcher` () {
         Assertions.assertThrows(AssertionError::class.java) {
             val person = DomainModelFaker.person(name = "foo")
             assertThat(person.name, ValidNameMatcher())
