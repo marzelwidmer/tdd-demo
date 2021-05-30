@@ -12,7 +12,7 @@ variables:
   - name : SONAR_ORGANIZATION
     value : c3smonkey-devops
   - name : SONAR_CLOUD
-    value : azure-c3smonkey
+    value : SonarCloud
 
 stages:
   # Prepare Semantic Versioning
