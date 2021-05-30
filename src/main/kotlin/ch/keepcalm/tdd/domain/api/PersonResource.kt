@@ -5,8 +5,8 @@ import org.springframework.hateoas.MediaTypes
 import org.springframework.hateoas.config.EnableHypermediaSupport
 import org.springframework.hateoas.support.WebStack
 import org.springframework.http.HttpStatus
-import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping(produces = [MediaTypes.HAL_JSON_VALUE])
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.*
 class PersonResource() {
 
     @GetMapping(value = ["/person"])
-    suspend fun getPerson(@RequestParam @Validated name: String) = Person(name=name, email = "foo@bar.com")
+    suspend fun getPerson() = Person(name = "John", email = "john@doe.com")
 
     @PostMapping(value = ["/person"])
     @ResponseStatus(HttpStatus.CREATED)
-    suspend fun postPerson(@RequestBody @Validated person: Person): Person {
+    suspend fun postPerson(@RequestBody @Valid person: Person): Person {
         return person
     }
 }

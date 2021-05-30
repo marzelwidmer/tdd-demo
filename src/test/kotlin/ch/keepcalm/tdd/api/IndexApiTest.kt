@@ -14,8 +14,7 @@ class IndexApiTest (private val client: WebTestClient) {
         client.get()
             .uri("/")
             .exchange()
-            .expectStatus()
-            .is2xxSuccessful
+            .expectStatus().is2xxSuccessful
             .expectBody()
     }
 
